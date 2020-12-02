@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string a = "3882";
+    string b = "2557";
+    int len = a.length() - 1;
+    int raz = 10;
+    int* aArr = new int[len] {};
+    int* bArr = new int[len] {};
+    int aTemp, bTemp;
+    for (int i = len; i >= 0; i--) {
+        aTemp = ((int)a[i]) - 48;
+        bTemp = ((int)b[i]) - 48;
+        if (i == len - 1) {
+            aTemp -= 1;
+            bTemp -= 1;
+        }
+        aArr[i-1] = aTemp;
+        bArr[i-1] = bTemp;
+    }
+    int C0 = 0;
+    int C1 = 0;
+    int point = 1;
+    int aint = 0;
+    int bint = 0;
+    C1 += atoi(a.c_str()) - 20 + atoi(b.c_str());
+    int C2 = 0;
+    C2 = (atoi(a.c_str()) - 10) * (atoi(b.c_str()) - 10);
+    C1 += C2 / 10;
+    C2 %= 10;
+    C0 += C1 / 10;
+    C1 %= 10;
+    string res = to_string(C0)+ " " + to_string(C1)+ " " + to_string(C2);
+    cout << res;
+}
